@@ -13,11 +13,6 @@ const createContactService = async (id_client:string, {fullName, email, telephon
         throw new AppError(400, "client not found")
     }
 
-    const emailAlreadyExists = await contactRepository.findOneBy({email: email})
-    if(!!emailAlreadyExists){
-        throw new AppError(400, "contact already exists")
-    }
-
     client
 
     const contact = new Contact()
